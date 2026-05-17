@@ -65,6 +65,11 @@ if (request.data) {
   })
 }
 
+    // Save the pending file ID so we can send it after verification
+    if (params) {
+        User.setProperty("pendingFile", params, "string");
+    }
+
     // If the user is not verified, send a random link with inline buttons
     var randomLink = "https://modijiurl.com/fillsharebot"; // Replace with your desired random link
     var buttons = [
