@@ -17,7 +17,6 @@
 CMD*/
 
 // Command: /start
-const idstore = Bot.getProp("idstore", []);
 const done = User.getProp("done");
 
 // Check for the "VerifyMe" parameter
@@ -27,18 +26,13 @@ if (params && params === "VerifyMe") {
 }
 
 if (!done) {
-    idstore.push(user.telegramid);
-    Bot.setProp("idstore", idstore, "json");
     User.setProp("done", user.telegramid, "text");
 }
 
 const id = params;
-var fullBotUsers = Bot.getProperty("wholeUsers", []);
 var already = User.getProperty("already");
 
 if (!already) {
-    fullBotUsers.push(user.telegramid);
-    Bot.setProperty("wholeUsers", fullBotUsers, "json");
     User.setProperty("already", user.telegramid, "text");
 }
 
